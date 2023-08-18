@@ -1,8 +1,9 @@
 import React from 'react';
-import './App.css';
-import './fonts.css';
+import './css/App.css';
+import './css/fonts.css';
 
-const SignupPage = () => {
+const SignupPage = () => {  
+
   return (
     <div className="container">
       <h1 className="login-title">SIGN UP</h1>
@@ -12,11 +13,9 @@ const SignupPage = () => {
         <input type="text" placeholder="Username" className="form-input username-icon" />
         <br />
         <input type="password" placeholder="Password" className="form-input password-icon" />
-        <br />
-        <button className="login-button">Sign Up Now</button>
-      </div>
-      <p className="no-account">Already have an account?</p>
-      <p className="sign-up">Log In</p>
+        <br />        
+      </div>      
+      <button className="sign-up">Sign Up</button>
     </div>
   );
 }

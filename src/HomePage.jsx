@@ -1,8 +1,16 @@
 import React from "react";
-import './App.css';
-import './fonts.css';
+import { useNavigate } from 'react-router-dom';
+import './css/App.css';
+import './css/fonts.css';
 
 const HomePage = () => {
+
+  const navigate = useNavigate();
+
+  const handleSignUpClick = () => {
+    navigate('/SignupPage');
+  };
+
   return (
     <div className="container">
       <h1 className="login-title">LOGIN</h1>
@@ -14,7 +22,7 @@ const HomePage = () => {
         <button className="login-button">Login Here</button>
       </div>
       <p className="no-account">No Account?</p>
-      <p className="sign-up">Sign Up</p>
+      <button className="sign-up" onClick={handleSignUpClick}>Sign Up</button>
     </div>
   );
 }
