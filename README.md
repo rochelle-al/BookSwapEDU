@@ -8,7 +8,6 @@ This Virtual Textbook Library is an innovative and user-friendly web application
 
 - Node.js: Required for running JavaScript on the server side and managing dependencies.
 - npm (Node Package Manager): Used to install and manage packages.
-- express mySQL rockman
 
 2. Navigate to the Project Directory:
    Change your terminal's working directory to the backend of the React app: cd C:\Users\Rochelle\Documents\BookSwapEDU\backend
