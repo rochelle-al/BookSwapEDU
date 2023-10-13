@@ -10,9 +10,9 @@ This Virtual Textbook Library is an innovative and user-friendly web application
 - npm (Node Package Manager): Used to install and manage packages.
 
 2. Navigate to the Project Directory:
-   Change your terminal's working directory to the backend of the React app: cd C:\Users\Rochelle\Documents\BookSwapEDU\backend
+   Change your terminal's working directory to the backend of the React app: cd backend
 
-   In a second terminal, Change your terminal's working directory to the front end of the React app: cd C:\Users\Rochelle\Documents\BookSwapEDU\client
+   In a second terminal, Change your terminal's working directory to the front end of the React app: cd client
 
 3. Run the Development Server:
    In the terminal, run the following command to start the development server: npm start
