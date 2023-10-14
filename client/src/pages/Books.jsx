@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import bookImage from '../images/bookImage.png';
 
 const Books = () => {
+    // State to store the list of books and the search query
     const [books, setBooks] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
+    // Use an effect to fetch all books when the component mounts
     useEffect(() => {
         const fetchAllBooks = async () => {
             try {
@@ -19,16 +21,25 @@ const Books = () => {
         fetchAllBooks();
     }, []);
 
+    // Function to handle the deletion of a book by its ID
     const handleDelete = async (id) => {
         try {
             await axios.delete("http://localhost:8800/books/" + id);
-            window.location.reload();
+            window.location.reload(); // Reload the page after deleting a book
         } catch (err) {
             console.log(err);
         }
     }
 
-    // Filter books based on search query
+    // Function to convert URLs in text to clickable links
+    const textWithLinks = (text) => {
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+        return text.replace(urlRegex, (url) => (
+            `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
+        ));
+    };
+
+    // Filter books based on the search query
     const filteredBooks = books.filter(book => {
         return book.title.toLowerCase().includes(searchQuery.toLowerCase());
     });
@@ -60,7 +71,7 @@ const Books = () => {
                         <tr key={book.id} style={{ backgroundColor: index % 2 === 0 ? '#f2f2f2' : '#ffffff' }}>
                             <td><img src={bookImage} alt="Default" /></td>
                             <td>{book.title}</td>
-                            <td style={{ textAlign: 'left' }}>{book.desc}</td> {/* Align description to the left */}
+                            <td style={{ textAlign: 'left' }} dangerouslySetInnerHTML={{ __html: textWithLinks(book.desc) }}></td>
                             <td>{book.price}</td>
                             <td>
                                 <button className='update'>
